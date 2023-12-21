@@ -84,7 +84,7 @@ function handleTab(reverse = false) {
 	editor.value = reverse ? removeForward(editor.value, '\t', newPosition) : insertAt(editor.value, '\t', newPosition);
 
 	// Render
-	render();
+	editor.value = render().replace(/[\t\n]+$/, '');
 	setCursorOnLine(currentLineNumber);
 }
 
@@ -155,7 +155,8 @@ function getText() {
 
 function getNormalizedText() {
 	const regexp = new RegExp(`[${indentationCharacters.join('|')}]`, 'gi');
-	const output = getText().replace(regexp, '').replace(/^ /g, '').trim();
+	// const output = getText().replace(regexp, '').replace(/^ /g, '').trim();
+	const output = getText().replace(regexp, '').replace(/^ /g, '').replace(/\n+$/g, '\n');
 
 	return output;
 }
