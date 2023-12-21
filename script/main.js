@@ -81,7 +81,11 @@ function handleTab(reverse = false) {
 	const newPosition = findNearestLinePosition(getCursorStart(), -1);
 
 	// Add tabs
-	editor.value = reverse ? removeForward(editor.value, '\t', newPosition) : insertAt(editor.value, '\t', newPosition);
+	if (newPosition === null) {
+		editor.value += '\t';
+	} else {
+		editor.value = reverse ? removeForward(editor.value, '\t', newPosition) : insertAt(editor.value, '\t', newPosition);
+	}
 
 	// Render
 	editor.value = render().replace(/[\t\n]+$/, '');
