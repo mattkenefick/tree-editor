@@ -1,0 +1,36 @@
+* {
+	box-sizing: border-box;
+}
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+}
+
+#editor {
+	background: #1a1c1c;
+	border: 0;
+	color: #eee;
+	height: 100%;
+	left: 0;
+	padding: 1rem;
+	position: absolute;
+	tab-size: 1rem;
+	top: 0;
+	width: 50%;
+}
+
+#debug {
+	background: #000000;
+	border: 0;
+	color: #666;
+	font-family: monospace;
+	height: 100%;
+	left: 0;
+	left: 50%;
+	position: absolute;
+	tab-size: 1rem;
+	white-space: pre;
+	width: 50%;
+}
